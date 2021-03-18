@@ -1,0 +1,99 @@
+
+import pandas as pd
+import numpy as np
+import scipy as scip
+import Bio
+from Bio.Seq import Seq
+import matplotlib.pyplot as plt
+print("ACE2 Receptor Comparison Between Human & Mouse")
+
+humanseq = Seq("CTFDKHEEDYDLWLMWKG")
+mouseseq = Seq("CIFDKQEEDYDLWWPWKG")
+monkeyseq = Seq("CTFDKHEEDYDLWLMWKG")
+hamsterseq = Seq("CTFDKQEEDYDLWLMWKG")
+lemurseq = Seq("CTFDKHEEDYDLWLTKGG")
+cattleseq = Seq("CTFEKHEEDYDLMTMWYG")
+catseq = Seq("LTFEKHEEEYDLWLTWKG")
+
+sequencearray=[humanseq, mouseseq, monkeyseq, hamsterseq, lemurseq, cattleseq, catseq]
+
+X, Y = humanseq, mouseseq
+X, Y = np.array(list(X)), np.array(list(Y))
+
+plt.imshow(X==Y[:,None])        # the magic happens here, contourf should work similarly
+plt.xticks(np.arange(len(X)), X)
+plt.yticks(np.arange(len(Y)), Y)
+plt.xlabel("Human ACE2")
+plt.ylabel("Mouse ACE2")
+plt.show()
+
+#
+
+def count(str1, str2):  
+    c, j = 0, 0
+
+    for i in str1:     
+
+        if str2.find(i)>= 0 and j == str1.find(i):  
+            c += 1
+        j += 1
+    print ('No. of matching characters are : ', c) 
+  
+count(humanseq, mouseseq)
+    
+
+X, Y = humanseq, monkeyseq
+X, Y = np.array(list(X)), np.array(list(Y))
+
+plt.imshow(X==Y[:,None])        # the magic happens here, contourf should work similarly
+plt.xticks(np.arange(len(X)), X)
+plt.yticks(np.arange(len(Y)), Y)
+plt.xlabel("Human ACE2")
+plt.ylabel("Monkey ACE2")
+plt.show()
+count(humanseq, monkeyseq)
+
+X, Y = humanseq, hamsterseq
+X, Y = np.array(list(X)), np.array(list(Y))
+
+plt.imshow(X==Y[:,None])        # the magic happens here, contourf should work similarly
+plt.xticks(np.arange(len(X)), X)
+plt.yticks(np.arange(len(Y)), Y)
+plt.xlabel("Human ACE2")
+plt.ylabel("Hamster ACE2")
+plt.show()
+count(humanseq, hamsterseq)
+
+X, Y = humanseq, lemurseq
+X, Y = np.array(list(X)), np.array(list(Y))
+
+plt.imshow(X==Y[:,None])        # the magic happens here, contourf should work similarly
+plt.xticks(np.arange(len(X)), X)
+plt.yticks(np.arange(len(Y)), Y)
+plt.xlabel("Human ACE2")
+plt.ylabel("Lemeur ACE2")
+plt.show()
+count(humanseq, lemurseq)
+
+X, Y = humanseq, cattleseq
+X, Y = np.array(list(X)), np.array(list(Y))
+
+plt.imshow(X==Y[:,None])        # the magic happens here, contourf should work similarly
+plt.xticks(np.arange(len(X)), X)
+plt.yticks(np.arange(len(Y)), Y)
+plt.xlabel("Human ACE2")
+plt.ylabel("Cattle ACE2")
+plt.show()
+count(humanseq, cattleseq)
+
+X, Y = humanseq, catseq
+X, Y = np.array(list(X)), np.array(list(Y))
+
+plt.imshow(X==Y[:,None])        # the magic happens here, contourf should work similarly
+plt.xticks(np.arange(len(X)), X)
+plt.yticks(np.arange(len(Y)), Y)
+plt.xlabel("Human ACE2")
+plt.ylabel("Cat ACE2")
+plt.show()
+count(humanseq, catseq)
+
